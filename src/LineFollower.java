@@ -5,7 +5,7 @@ import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
 
 /**
- * Class description
+ * Clase principal del seguidor de linea, ejecuta al administrador de comportamientos
  *
  * @author Constanza Escobar
  */
@@ -16,12 +16,14 @@ public class LineFollower {
         LightSensor light = new LightSensor(SensorPort.S2);
         light.setFloodlight(true);
 
+        //Calibración de colores blanco y negro
         Button.ENTER.waitForPressAndRelease();
         int black = light.getNormalizedLightValue();
         Button.ENTER.waitForPressAndRelease();
         int white = light.getNormalizedLightValue();
         int threshold = (black + white)/2;
 
+        //Comportamientos e inicialización
         DifferentialPilot pilot = new DifferentialPilot(3, 12, Motor.A, Motor.C);
         pilot.setTravelSpeed(50);
         pilot.setRotateSpeed(300);
