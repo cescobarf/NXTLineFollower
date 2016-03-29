@@ -1,5 +1,4 @@
 import lejos.nxt.*;
-import lejos.robotics.navigation.DifferentialPilot;
 import lejos.robotics.subsumption.*;
 
 /**
@@ -10,16 +9,13 @@ import lejos.robotics.subsumption.*;
  */
 
 public class WatchBlack implements Behavior {
-    private DifferentialPilot pilot;
     private boolean suppressed = false;
 
     /**
      * Crea el comportamiento
-     *
-     * @param dfpilot DifferentialPilot que controla al robot
      */
-    public WatchBlack (DifferentialPilot dfpilot){
-        pilot = dfpilot;
+    public WatchBlack (){
+        Motor.A.setSpeed(50);
     }
 
     /**
@@ -41,12 +37,12 @@ public class WatchBlack implements Behavior {
      */
     public void action() {
         suppressed = false;
-        pilot.arcForward(-10);
+        Motor.A.forward();
 
         while (!suppressed){
             Thread.yield();
         }
 
-        pilot.stop();
+         Motor.A.stop();
     }
 }
