@@ -13,6 +13,10 @@ import lejos.robotics.subsumption.Behavior;
 public class LineFollower {
 
     public static void main(String [] args) {
+        new LineFollower.go();
+    }
+    
+    public void go() {
         LightSensor light = new LightSensor(SensorPort.S2);
         light.setFloodlight(true);
 
