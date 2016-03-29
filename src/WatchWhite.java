@@ -1,6 +1,7 @@
 import lejos.nxt.*;
 import lejos.robotics.navigation.DifferentialPilot;
 import lejos.robotics.subsumption.*;
+import lejos.util.Delay;
 
 /**
  * Comportamiento ver blanco, es el segundo comportamiento con menos prioridad. Debe ejecutarse cuando el robot no vea
@@ -47,6 +48,9 @@ public class WatchWhite implements Behavior {
      */
     public void action() {
         suppressed = false;
+        LCD.clear();
+        LCD.drawString("Ver blanco",0,0);
+        Button.ENTER.waitForPressAndRelease();
         pilot.arcForward(10);
 
         while (light.getNormalizedLightValue() >= white && !suppressed){

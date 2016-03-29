@@ -41,6 +41,9 @@ public class WatchBlack implements Behavior {
      */
     public void action() {
         suppressed = false;
+        LCD.clear();
+        LCD.drawString("Ver negro",0,0);
+        Button.ENTER.waitForPressAndRelease();
         pilot.arcForward(-10);
 
         while (!suppressed){

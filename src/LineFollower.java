@@ -21,8 +21,10 @@ public class LineFollower {
         light.setFloodlight(true);
 
         //Calibración de colores blanco y negro
+        LCD.drawString("Black",0,0);
         Button.ENTER.waitForPressAndRelease();
         int black = light.getNormalizedLightValue();
+        LCD.drawString("White",0,1);
         Button.ENTER.waitForPressAndRelease();
         int white = light.getNormalizedLightValue();
         int threshold = (black + white)/2;
@@ -38,7 +40,9 @@ public class LineFollower {
         Behavior [] bArray = {b1, b2, b3, b4};
         Arbitrator arby = new Arbitrator(bArray);
 
+        LCD.drawString("Press for start",0,4);
         Button.ENTER.waitForPressAndRelease();
+        LCD.clear();
         arby.start();
     }
 }
