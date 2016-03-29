@@ -1,5 +1,4 @@
 import lejos.nxt.*;
-import lejos.robotics.navigation.DifferentialPilot;
 import lejos.robotics.subsumption.*;
 
 /**
@@ -11,18 +10,15 @@ import lejos.robotics.subsumption.*;
 
 public class HitWall implements Behavior {
     private TouchSensor touch;
-    private DifferentialPilot pilot;
     private boolean suppressed = false;
 
     /**
      * Crea el comportamiento
      *
      * @param port El puerto donde esta conectado el sensor de tacto
-     * @param dfpilot DifferentialPilot que controla al robot
      */
-    public HitWall(SensorPort port, DifferentialPilot dfpilot) {
+    public HitWall(SensorPort port) {
         touch = new TouchSensor( port );
-        pilot = dfpilot;
     }
 
     /**
@@ -44,12 +40,11 @@ public class HitWall implements Behavior {
      */
     public void action() {
         suppressed = false;
-        pilot.travel(-5);
-        pilot.rotate(90, true);
+        Motor.A.forward();
+        Motor.C.backward();
 
-        while( pilot.isMoving() && !suppressed )
-            Thread.yield();
-
-        pilot.stop();
+        Delay.msDelay(200);
+        Motor.A.stop();
+        Motor.C.stop();
     }
 }

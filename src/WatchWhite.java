@@ -1,5 +1,4 @@
 import lejos.nxt.*;
-import lejos.robotics.navigation.DifferentialPilot;
 import lejos.robotics.subsumption.*;
 import lejos.util.Delay;
 
@@ -13,20 +12,18 @@ import lejos.util.Delay;
 public class WatchWhite implements Behavior {
     private LightSensor light;
     private int white;
-    private DifferentialPilot pilot;
     private boolean suppressed = false;
 
     /**
      * Crea el comportamiento
      *
      * @param sensor El sensor de luz que se inició en Main
-     * @param dfpilot DifferentialPilot que controla al robot
      * @param color Umbral de diferencia entre blanco y negro
      */
-    public WatchWhite (LightSensor sensor, DifferentialPilot dfpilot, int color){
+    public WatchWhite (LightSensor sensor, int color){
         light = sensor;
         white = color;
-        pilot = dfpilot;
+        Motor.C.setSpeed(50);
     }
 
     /**
@@ -48,15 +45,19 @@ public class WatchWhite implements Behavior {
      */
     public void action() {
         suppressed = false;
+<<<<<<< HEAD
         LCD.clear();
         LCD.drawString("Ver blanco",0,0);
         Button.ENTER.waitForPressAndRelease();
         pilot.arcForward(10);
+=======
+        Motor.C.forward();
+>>>>>>> 08275e409f528e49b8a8843f12a2b54405ffa028
 
         while (light.getNormalizedLightValue() >= white && !suppressed){
             Thread.yield();
         }
 
-        pilot.stop();
+        Motor.C.stop();
     }
 }
