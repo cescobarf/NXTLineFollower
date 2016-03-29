@@ -13,7 +13,7 @@ import lejos.robotics.subsumption.Behavior;
 public class LineFollower {
 
     public static void main(String [] args) {
-        new LineFollower.go();
+        new LineFollower().go();
     }
     
     public void go() {
@@ -29,7 +29,7 @@ public class LineFollower {
 
         //Comportamientos e inicialización
         DifferentialPilot pilot = new DifferentialPilot(3, 12, Motor.A, Motor.C);
-        pilot.setTravelSpeed(50);
+        pilot.setTravelSpeed(300);
         pilot.setRotateSpeed(300);
         Behavior b1 = new WatchBlack(pilot);
         Behavior b2 = new WatchWhite(light,pilot,threshold);
