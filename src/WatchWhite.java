@@ -12,7 +12,7 @@ import lejos.util.Delay;
 public class WatchWhite implements Behavior {
     private LightSensor light;
     private int white;
-    private NXTRegulatedMotor m2 = Motor.C;
+    private NXTRegulatedMotor m2 = Motor.B;
     private boolean suppressed = false;
 
     /**

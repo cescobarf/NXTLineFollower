@@ -10,7 +10,7 @@ import lejos.robotics.subsumption.*;
 
 public class WatchBlack implements Behavior {
     private boolean suppressed = false;
-    private NXTRegulatedMotor m1 = Motor.A;
+    private NXTRegulatedMotor m1 = Motor.C;
 
     /**
      * Crea el comportamiento
