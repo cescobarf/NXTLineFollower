@@ -43,7 +43,7 @@ public class HitWall implements Behavior {
         Motor.B.stop();
         Motor.C.stop();
         Motor.B.rotate(-40);
-        Motor.C.rotate(-40);
+        Motor.C.rotate(40);
         suppressed = false;
         Motor.B.forward();
         Motor.C.backward();
