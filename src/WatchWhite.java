@@ -24,6 +24,7 @@ public class WatchWhite implements Behavior {
     public WatchWhite (LightSensor sensor, int color){
         light = sensor;
         white = color;
+        m2.flt();
         m2.setSpeed(100);
     }
 
