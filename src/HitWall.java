@@ -41,11 +41,11 @@ public class HitWall implements Behavior {
      */
     public void action() {
         suppressed = false;
-        Motor.A.forward();
+        Motor.B.forward();
         Motor.C.backward();
 
         Delay.msDelay(200);
-        Motor.A.stop();
+        Motor.B.stop();
         Motor.C.stop();
     }
 }

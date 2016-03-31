@@ -18,7 +18,7 @@ public class WatchBlack implements Behavior {
     public WatchBlack (){
         m1.flt();
         m1.setAcceleration(5000);
-        m1.setSpeed(300);
+        m1.setSpeed(500);
     }
 
     /**
