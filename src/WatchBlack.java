@@ -52,7 +52,5 @@ public class WatchBlack implements Behavior {
         while (!suppressed){
             Thread.yield();
         }
-
-        m1.stop();
     }
 }

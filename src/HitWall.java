@@ -40,6 +40,10 @@ public class HitWall implements Behavior {
      * El robot gira en su propio eje, 180 grados
      */
     public void action() {
+        Motor.B.stop();
+        Motor.C.stop();
+        Motor.B.rotate(-40);
+        Motor.C.rotate(-40);
         suppressed = false;
         Motor.B.forward();
         Motor.C.backward();

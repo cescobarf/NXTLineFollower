@@ -58,8 +58,5 @@ public class WatchWhite implements Behavior {
         while (light.getNormalizedLightValue() >= white && !suppressed){
             Thread.yield();
         }
-
-        m2.stop();
-        m1.stop();
     }
 }
