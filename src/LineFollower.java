@@ -17,7 +17,7 @@ public class LineFollower {
     }
     
     public void go() {
-        LightSensor light = new LightSensor(SensorPort.S1);
+        LightSensor light = new LightSensor(SensorPort.S2);
         light.setFloodlight(true);
 
         //Calibración de colores blanco y negro
@@ -32,7 +32,7 @@ public class LineFollower {
         //Comportamientos e inicialización
         Behavior b1 = new WatchBlack();
         Behavior b2 = new WatchWhite(light,threshold);
-        Behavior b3 = new HitWall(SensorPort.S2);
+        Behavior b3 = new HitWall(SensorPort.S1);
         // Behavior b4 = new Stop(SensorPort.S3);
         Behavior [] bArray = {b1, b2, b3};
         Arbitrator arby = new Arbitrator(bArray);
