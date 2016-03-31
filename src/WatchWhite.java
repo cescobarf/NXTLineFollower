@@ -13,6 +13,7 @@ public class WatchWhite implements Behavior {
     private LightSensor light;
     private int white;
     private NXTRegulatedMotor m2 = Motor.B;
+    private NXTRegulatedMotor m1 = Motor.C;
     private boolean suppressed = false;
 
     /**
@@ -25,8 +26,6 @@ public class WatchWhite implements Behavior {
         light = sensor;
         white = color;
         m2.flt();
-        m2.setAcceleration(5000);
-        m2.setSpeed(500);
     }
 
     /**
@@ -51,12 +50,16 @@ public class WatchWhite implements Behavior {
         LCD.clear();
         LCD.drawString("Ver blanco",0,0);
 
+        m1.setSpeed(50);
+        m2.setSpeed(400);
         m2.forward();
+        m1.forward();
 
         while (light.getNormalizedLightValue() >= white && !suppressed){
             Thread.yield();
         }
 
         m2.stop();
+        m1.stop();
     }
 }
