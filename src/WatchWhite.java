@@ -50,7 +50,7 @@ public class WatchWhite implements Behavior {
         LCD.clear();
         LCD.drawString("Ver blanco",0,0);
 
-        m1.setSpeed(50);
+        m1.setSpeed(25);
         m2.setSpeed(300);
         m2.forward();
         m1.forward();

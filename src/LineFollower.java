@@ -27,7 +27,7 @@ public class LineFollower {
         LCD.drawString("White",0,1);
         Button.ENTER.waitForPressAndRelease();
         int white = light.getNormalizedLightValue();
-        int threshold = black + (white - black)/4;
+        int threshold = (black + white)/2;
 
         //Comportamientos e inicialización
         Behavior b1 = new WatchBlack();
