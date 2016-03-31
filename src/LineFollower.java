@@ -30,14 +30,11 @@ public class LineFollower {
         int threshold = (black + white)/2;
 
         //Comportamientos e inicialización
-        DifferentialPilot pilot = new DifferentialPilot(3, 12, Motor.A, Motor.C);
-        pilot.setTravelSpeed(300);
-        pilot.setRotateSpeed(300);
-        Behavior b1 = new WatchBlack(pilot);
-        Behavior b2 = new WatchWhite(light,pilot,threshold);
-        Behavior b3 = new HitWall(SensorPort.S1, pilot);
-        Behavior b4 = new Stop(SensorPort.S3);
-        Behavior [] bArray = {b1, b2, b3, b4};
+        Behavior b1 = new WatchBlack();
+        Behavior b2 = new WatchWhite(light,threshold);
+        Behavior b3 = new HitWall(SensorPort.S1);
+        // Behavior b4 = new Stop(SensorPort.S3);
+        Behavior [] bArray = {b1, b2, b3};
         Arbitrator arby = new Arbitrator(bArray);
 
         LCD.drawString("Press for start",0,4);

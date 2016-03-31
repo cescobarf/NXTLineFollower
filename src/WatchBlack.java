@@ -10,12 +10,13 @@ import lejos.robotics.subsumption.*;
 
 public class WatchBlack implements Behavior {
     private boolean suppressed = false;
+    private NXTRegulatedMotor m1 = Motor.A;
 
     /**
      * Crea el comportamiento
      */
     public WatchBlack (){
-        Motor.A.setSpeed(50);
+        m1.setSpeed(50);
     }
 
     /**
@@ -37,19 +38,17 @@ public class WatchBlack implements Behavior {
      */
     public void action() {
         suppressed = false;
-<<<<<<< HEAD
+
         LCD.clear();
         LCD.drawString("Ver negro",0,0);
         Button.ENTER.waitForPressAndRelease();
-        pilot.arcForward(-10);
-=======
-        Motor.A.forward();
->>>>>>> 08275e409f528e49b8a8843f12a2b54405ffa028
+
+        m1.forward();
 
         while (!suppressed){
             Thread.yield();
         }
 
-         Motor.A.stop();
+        m1.stop();
     }
 }

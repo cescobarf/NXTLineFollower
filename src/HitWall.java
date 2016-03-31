@@ -1,5 +1,6 @@
 import lejos.nxt.*;
 import lejos.robotics.subsumption.*;
+import lejos.util.Delay;
 
 /**
  * Comportamiento chocar, es el tercer comportamiento con menos prioridad. Se ejecuta cuando el robot choca con

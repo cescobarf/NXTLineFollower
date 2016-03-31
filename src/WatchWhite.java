@@ -12,6 +12,7 @@ import lejos.util.Delay;
 public class WatchWhite implements Behavior {
     private LightSensor light;
     private int white;
+    private NXTRegulatedMotor m2 = Motor.C;
     private boolean suppressed = false;
 
     /**
@@ -23,7 +24,7 @@ public class WatchWhite implements Behavior {
     public WatchWhite (LightSensor sensor, int color){
         light = sensor;
         white = color;
-        Motor.C.setSpeed(50);
+        m2.setSpeed(50);
     }
 
     /**
@@ -45,19 +46,16 @@ public class WatchWhite implements Behavior {
      */
     public void action() {
         suppressed = false;
-<<<<<<< HEAD
         LCD.clear();
         LCD.drawString("Ver blanco",0,0);
         Button.ENTER.waitForPressAndRelease();
-        pilot.arcForward(10);
-=======
-        Motor.C.forward();
->>>>>>> 08275e409f528e49b8a8843f12a2b54405ffa028
+
+        m2.forward();
 
         while (light.getNormalizedLightValue() >= white && !suppressed){
             Thread.yield();
         }
 
-        Motor.C.stop();
+        m2.stop();
     }
 }
