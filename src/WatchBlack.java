@@ -16,7 +16,7 @@ public class WatchBlack implements Behavior {
      * Crea el comportamiento
      */
     public WatchBlack (){
-        m1.setSpeed(50);
+        m1.setSpeed(100);
     }
 
     /**
@@ -41,7 +41,6 @@ public class WatchBlack implements Behavior {
 
         LCD.clear();
         LCD.drawString("Ver negro",0,0);
-        Button.ENTER.waitForPressAndRelease();
 
         m1.forward();
 

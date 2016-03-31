@@ -24,7 +24,7 @@ public class WatchWhite implements Behavior {
     public WatchWhite (LightSensor sensor, int color){
         light = sensor;
         white = color;
-        m2.setSpeed(50);
+        m2.setSpeed(100);
     }
 
     /**
@@ -48,7 +48,6 @@ public class WatchWhite implements Behavior {
         suppressed = false;
         LCD.clear();
         LCD.drawString("Ver blanco",0,0);
-        Button.ENTER.waitForPressAndRelease();
 
         m2.forward();
 
