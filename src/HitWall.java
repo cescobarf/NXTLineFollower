@@ -49,11 +49,11 @@ public class HitWall implements Behavior {
         Motor.B.backward();
         Motor.C.backward();
 
-        Delay.msDelay(50);
+        Delay.msDelay(75);
 
         Motor.B.forward();
 
-        Delay.msDelay(1250);
+        Delay.msDelay(1500);
 
         Motor.B.stop();
         Motor.C.stop();
